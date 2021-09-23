@@ -63,6 +63,10 @@ public class GitLabIdentityProvider extends OIDCIdentityProvider  implements Soc
 		}
 	}
 
+	@Override
+	protected void processAccessTokenResponse(BrokeredIdentityContext context,
+			AccessTokenResponse response) {}
+
 	protected String getUsernameFromUserInfo(JsonNode userInfo) {
 		return getJsonProperty(userInfo, "username");
 	}

@@ -27,6 +27,7 @@ import org.keycloak.common.ClientConnection;
 import org.keycloak.common.util.KeycloakUriBuilder;
 import org.keycloak.events.EventBuilder;
 import org.keycloak.models.KeycloakSession;
+import org.keycloak.representations.AccessTokenResponse;
 import org.keycloak.representations.JsonWebToken;
 
 import javax.ws.rs.core.MultivaluedMap;
@@ -71,6 +72,10 @@ public class GoogleIdentityProvider extends OIDCIdentityProvider implements Soci
         logger.debugv("GOOGLE userInfoUrl: {0}", uri);
         return uri;
     }
+
+    @Override
+    protected void processAccessTokenResponse(BrokeredIdentityContext context,
+        AccessTokenResponse response) {}
 
     @Override
     protected boolean supportsExternalExchange() {
